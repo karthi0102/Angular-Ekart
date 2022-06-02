@@ -25,6 +25,9 @@ async getproducts(){
   console.log(this.products)
 }
 
+async OnSubmit(){
+  
+}
 async sendProduct(id:any){
   console.log(id)
   console.log('at  setproduct')
