@@ -12,6 +12,9 @@ export class MyserviceService {
   constructor(private httpClient:HttpClient) { 
     
   }
+  async dbnewproduct(){
+    
+  }
 
   async ProductRegister(){
     let httpHeaders = new HttpHeaders({
