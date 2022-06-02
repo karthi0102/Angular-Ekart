@@ -5,7 +5,8 @@
       <div class="card shadow">
         <div class="card-body">
           <h4 class="text-center display-4 my-4">ADD A PRODUCT</h4>
-      <form class="form ">
+      <form class="form " action="http://localhost:3000/api/products" method="post">
+
         <div class="form-group mb-3">
             <label for="fname" class="form-label">Product Name</label>
             <input type="text"class="form-control" id="fname" name="name">
@@ -28,7 +29,7 @@
           </div>
           
           <div class="d-grid gap-2">
-          <button class="btn btn-primary" type="submit"(click)='postInfo()' >Submit</button>
+          <button class="btn btn-primary"  >Submit</button>
         </div>
         </form>
       </div>
