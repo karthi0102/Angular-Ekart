@@ -11,8 +11,6 @@ export class NewProductComponent implements OnInit {
   constructor(private myapp:AppComponent,private myservice:MyserviceService) { }
   postInfo(){
     this.myservice.dbnewproduct()
-
-
   }
 
   ngOnInit(): void {

@@ -22,10 +22,12 @@ router.get('/products',(req,res)=>{
     })
 })
 
-router.post('/products',(req,res)=>{
+router.post('/insert',(req,res)=>{
     const product = new Product();
-    product.name=req.body.name;
-    product.price=req.body.price
+    product.name=req.body.fname;
+    product.price=req.body.fprice;
+    product.rating=req.body.frating;
+    product.img=req.body.fimg
     product.save()
     res.redirect('/products')
 
