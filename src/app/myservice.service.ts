@@ -12,6 +12,14 @@ export class MyserviceService {
   constructor(private httpClient:HttpClient) { 
     
   }
+  async dbnewproduct(){
+    let httpHeaders = new HttpHeaders({
+      'content-Type':'application/json'
+    });
+    await this.httpClient.get('http://localhost:3000/api/insert',{headers:httpHeaders}).toPromise()
+   
+
+  }
 
   async ProductRegister(){
     let httpHeaders = new HttpHeaders({
