@@ -37,6 +37,7 @@ async getSpecificData(id:any){
   console.log(this.products)
   return this.products
 }
+
   get(data:any){
     this.products=data
   }
