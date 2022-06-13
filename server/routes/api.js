@@ -13,7 +13,7 @@ mongoose.connect(db,{useNewUrlParser:true,useUnifiedTopology:true})
 router.get('/',(req,res)=>{
     res.send("api works")
 })
-router.get('/products',(req,res)=>{
+router.get('/products',async (req,res)=>{
     Product.find({}) 
     .exec((err,products)=>{
         if(err) console.log(err.message)
@@ -24,22 +24,18 @@ router.get('/products',(req,res)=>{
 })
 
 router.post('/products',(req,res)=>{
-    const product = new Product();
-    product.name=req.body.name;
-    product.price=req.body.price;
-    product.rating=req.body.rating;
-    product.image=req.body.image
+    const product = new Product(req.body);
     product.save()
     res.redirect('http://localhost:4200/products')
-
 })
 
-router.post('/products/delete',async(req,res)=>{
-    const {id} = req.body
+router.delete('/products/:id',async(req,res)=>{
+    try{
+    const {id} = req.params
     const product= await Product.findByIdAndDelete(id);
-
-       res.redirect('http://localhost:4200/products')
-
+    }catch(err){
+        console.log(err)
+    }
     })
 
 

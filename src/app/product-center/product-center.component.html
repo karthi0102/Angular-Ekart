@@ -13,16 +13,15 @@
                   </div>
                     <div class="icons">
                       <div>
-                    <form action="http://localhost:3000/api/products/delete" method="post">
-                    <input type="hidden" name="id" value={{p._id}}>
-                  <button  class="btn btn-light" >  <i class="fa-solid fa-circle-minus"></i> </button>
+                   
+                  <a (click)="deleteProduct(p._id)" class="btn btn-light" >  <i class="fa-solid fa-circle-minus"></i> </a>
 
-                </form>
+             
               </div>
               <div>
 
                   <a (click)="sendProduct(p._id)" routerLink ="/show" class="btn btn-outline-light"><i class="fa-regular fa-eye"></i></a>
-              
+               
               </div>
               <div>
                 <button class=" btn btn-outline-light"><i class=" fa-regular fa-heart"></i>

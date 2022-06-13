@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MyserviceService } from '../myservice.service';
-import { AppComponent } from '../app.component';
+
 
 @Component({
   selector: 'app-productview',
@@ -8,27 +8,13 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./productview.component.scss']
 })
 export class ProductviewComponent implements OnInit {
-
-  pid:any
-  products:any
-  myser:any
-  id:any;
+products:any
   
-    constructor(private myapp:AppComponent,private myservice:MyserviceService) {
-      this.id=myservice.id
-      this.myser=myservice
-      console.log(this.id)
-      this.showData()
+    constructor(private myservice:MyserviceService) {
      
-     }
-  
-     async showData(){
-      this.pid=this.id
-    this.products=  await this.myser.getSpecificData(this.pid)
-    console.log('pppp')
-    console.log(this.products)
-  
-     }
+    }
+    
     ngOnInit(): void {
+        this.myservice.getData().subscribe(data => this.products= data )
     }
 }

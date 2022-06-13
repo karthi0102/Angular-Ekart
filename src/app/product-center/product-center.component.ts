@@ -11,31 +11,21 @@ import { AppComponent } from '../app.component';
 export class ProductCenterComponent implements OnInit {
 
   products:any ;
-  app:any;
-constructor(private myservice:MyserviceService,private myapp:AppComponent) {
-  this.myservice.get(this.products)
-  this.getproducts();
-  this.app=myservice;
-  console.log(this.products)
-
-}
-
-async getproducts(){
-  this.products=await this.myservice.ProductRegister()
-  console.log(this.products)
-}
-
-async OnSubmit(){
   
-}
-async sendProduct(id:any){
-  console.log(id)
-  console.log('at  setproduct')
-  this.app.setdata(id)
+constructor(private myservice:MyserviceService) {
 
+}
+
+
+async sendProduct(id:any){  
+  this.myservice.setdata(id)
+}
+deleteProduct(id:any){
+  this.myservice.deleteProduct(id)
+  window.location.reload();
 }
 
   ngOnInit(): void {
-  }
+    this.myservice.getProduct().subscribe(data => this.products = data)  }
  
 }
